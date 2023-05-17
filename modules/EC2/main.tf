@@ -7,6 +7,8 @@ resource "aws_instance" "webserver" {
     key_name               = "TF_key"
     # monitoring             = true
     vpc_security_group_ids = [module.sg.SG_id]
+    user_data = file("./modules/EC2/script.sh")
+
     # subnet_id              = 
     # subnet_ids = [] 
     # depends_on = [  ] // anything required to create before EC2 we can use it.
